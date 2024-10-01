@@ -26,4 +26,4 @@ Haskell более популярен среди функциональных я
 1. Real World OCaml - https://dev.realworldocaml.org/
 2. OCaml Programming: C + E + B - https://cs3110.github.io/textbook/cover.html
 
-P.S. - вторая помечена как Intermediate, а первая как Beginners, не знаю, какуб лучше использовать для курса
+P.S. - вторая помечена как Intermediate, а первая как Beginners, не знаю, какую лучше использовать для курса
