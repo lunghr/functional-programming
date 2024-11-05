@@ -3,14 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - first-lab  
+      - main
+      - first-lab
   pull_request:
     branches:
-      - first-lab
-
-permissions:
-  checks: write
-  pull-requests: write
+      - main
 
 jobs:
   build:
@@ -29,7 +26,6 @@ jobs:
           opam install . --deps-only --with-test
           opam install ounit2
           opam exec -- dune build
-
 
   lint:
     runs-on: ubuntu-latest
@@ -51,18 +47,18 @@ jobs:
       - name: Lint opam
         uses: ocaml/setup-ocaml/lint-opam@v3
 
-    tests:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
           
-        - name: Set up OCaml
-          uses: ocaml/setup-ocaml@v3
-          with:
-            ocaml-compiler: 5
+      - name: Set up OCaml
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 5
             
-        - name: Run tests
-          run: opam exec -- dune runtest
-          env:
-            REPORT_PATH: ${{ github.workspace }}_build/report.xml
+      - name: Run tests
+        run: opam exec -- dune runtest
+        env:
+          REPORT_PATH: ${{ github.workspace }}/_build/report.xml  
