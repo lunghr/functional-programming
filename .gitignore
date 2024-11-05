@@ -1,0 +1,22 @@
+### OCaml ###
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.o
+*.cmx
+*.cmxs
+*.cmxa
+*.byte
+*.native
+*.install
+*.xml
+
+
+# ocamlbuild working directory
+_build/
+_bin/
+_opam/
+
+
