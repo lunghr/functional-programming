@@ -57,7 +57,16 @@ jobs:
         uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: 5
-            
+
+      - name: Install dependencies
+        run: |
+          opam install . --deps-only --with-test
+          opam install ounit2
+          opam exec -- dune build
+      
+      - name: Update opam environment
+        run: eval $(opam env)
+        
       - name: Run tests
         run: opam exec -- dune runtest
         env:
