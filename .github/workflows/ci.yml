@@ -27,7 +27,8 @@ jobs:
       - name: Install dependencies
         run: |
           opam install . --deps-only --with-test
-          opam exec -- dune build
+          opam install ounit2
+      
 
       - name: Run tests
         run: opam exec -- dune runtest
