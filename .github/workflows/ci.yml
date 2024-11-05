@@ -52,17 +52,17 @@ jobs:
         uses: ocaml/setup-ocaml/lint-opam@v3
 
     tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Set up OCaml
-        uses: ocaml/setup-ocaml@v3
-        with:
-          ocaml-compiler: 5
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
           
-      - name: Run tests
-        run: opam exec -- dune runtest
-        env:
-          REPORT_PATH: ${{ github.workspace }}_build/report.xml
+        - name: Set up OCaml
+          uses: ocaml/setup-ocaml@v3
+          with:
+            ocaml-compiler: 5
+            
+        - name: Run tests
+          run: opam exec -- dune runtest
+          env:
+            REPORT_PATH: ${{ github.workspace }}_build/report.xml
